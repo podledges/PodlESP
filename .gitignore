@@ -1,0 +1,18 @@
+# ESP-IDF generated files
+build/
+sdkconfig
+sdkconfig.old
+dependencies.lock
+managed_components/
+
+# Nix outputs and local environment helpers
+result
+result-*
+.direnv/
+.envrc
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+.DS_Store
