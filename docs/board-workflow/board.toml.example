@@ -1,0 +1,29 @@
+# Copy to .podlesp/board.toml (ignored) only after checking the physical unit.
+target = "esp32s3"
+manufacturer = "UNKNOWN"
+model = "UNKNOWN"
+sku = "UNKNOWN"
+revision = "UNKNOWN"
+memory_configuration = "UNKNOWN flash and PSRAM part/size/mode"
+wiring_source = "UNKNOWN manufacturer schematic URL and revision"
+forwarding_decision = "UNKNOWN exact WSL/host ownership and forwarding arrangement"
+firmware_decision = "generic PodlESP smoke self-test approved for this unit"
+partition_decision = "UNKNOWN approve replacing bootloader, partition table, and app sectors"
+security_state_decision = "UNKNOWN confirmed flash-encryption/secure-boot state; workflow will not change it"
+recovery_plan = "UNKNOWN location/hash/tool/steps for a known-good image"
+safety_guarantee = "UNKNOWN or cooperating-lock-and-snapshot-accepted"
+
+# One exact stable path. Never use /dev/ttyACM0 or a glob.
+device_by_path = "/dev/serial/by-path/UNKNOWN"
+# sha256 of the exact sysfs USB serial string; the raw identifier stays local.
+usb_serial_sha256 = "UNKNOWN"
+usb_vid = "303a"
+usb_pid = "1001"
+usb_manufacturer = "Espressif"
+usb_product = "USB JTAG/serial debug unit"
+
+# Must match the fixture and the confirmed physical flash capability.
+fixture_flash_size = "2MB"
+# Explicit test choices, not facts inferred from an earlier capture.
+baud = 115200
+flash_baud = 460800

@@ -4,6 +4,11 @@ sdkconfig
 sdkconfig.old
 dependencies.lock
 managed_components/
+__pycache__/
+*.pyc
+
+# Local board identity, one-time approvals, locks, artifacts, and run evidence
+.podlesp/
 
 # Nix outputs and local environment helpers
 result
