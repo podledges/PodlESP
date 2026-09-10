@@ -1,0 +1,11 @@
+# A captain/operator creates .podlesp/approval.toml for ONE immediate operation.
+# The --execute flag is only a guard; it is not evidence of this external approval.
+approval_id = "UNKNOWN unique one-time value"
+approved_by = "UNKNOWN approving person"
+approved_at = "UNKNOWN ISO-8601 timestamp"
+expires_at = "UNKNOWN short ISO-8601 deadline"
+operation = "standard-flash-hard-reset"
+artifact_manifest_sha256 = "UNKNOWN exact .podlesp/artifact.json SHA-256"
+board_config_sha256 = "UNKNOWN exact .podlesp/board.toml SHA-256"
+device_identity_digest = "UNKNOWN value printed by the documented preparation step"
+acknowledge_partition_overwrite = true

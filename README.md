@@ -2,8 +2,10 @@
 
 Project-local, reproducible ESP-IDF tooling for ESP32 development. One shared
 tool environment supports board-specific firmware under [`boards/`](boards/).
-The initial scope is deliberately build-only: it does not flash, reset, probe,
-monitor, or otherwise access hardware.
+The default scope is deliberately hardware-safe. Builds never access hardware;
+the documented board workflow is dry-run by default and requires a fully
+confirmed board configuration plus fresh, externally granted, one-time approval
+before it can flash/reset or run its bounded serial self-test.
 
 ## Pinned toolchain
 
@@ -93,6 +95,27 @@ nix develop --command bash -euc '
 This only creates ignored local build files. Do **not** append `flash`,
 `monitor`, OpenOCD startup, or an esptool command to these validation commands.
 CI runs the sandboxed check with two jobs/cores and a 45-minute limit.
+
+## Guarded board workflow
+
+The project commands and future first-run checklist are in
+[`docs/board-workflow/`](docs/board-workflow/README.md):
+
+```console
+./tools/podlesp-board build
+./tools/podlesp-board flash
+./tools/podlesp-board test-board
+```
+
+The latter two are validation-only dry runs unless `--execute` is explicitly
+supplied together with a complete local board configuration and scoped,
+unexpired, one-time approval. The flag is not captain/operator permission. No
+hardware command is authorized by this documentation or by a successful build.
+Run the offline guard and capture tests with:
+
+```console
+python3 -m unittest discover -s tests -v
+```
 
 ## Board layout and compatibility
 

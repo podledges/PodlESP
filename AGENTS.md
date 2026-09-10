@@ -5,6 +5,7 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Use the shared pinned shell in `flake.nix`; run the bounded `nix flake check` command in `README.md` after environment or firmware changes.
 - For board-facing work, read that model's `boards/<model-slug>/README.md` first. Keep chip targets separate from board pin, memory, peripheral, and revision claims.
 - Treat builds as compilation evidence only. Hardware access and claims require explicit authorization and evidence from the exact board's primary sources.
+- For flash/reset or board self-test work, follow `docs/board-workflow/README.md`; its commands are dry-run by default and each real cycle needs fresh scoped approval.
 
 ## Maintaining this file
 

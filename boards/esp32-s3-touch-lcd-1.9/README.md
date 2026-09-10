@@ -31,9 +31,14 @@ confirmation. A clean build proves compilation only, never hardware behavior.
 
 ## Firmware
 
-[`smoke`](smoke) is the initial build-only example. Its only board constraint is
-ESP-IDF target `esp32s3`; it deliberately does not configure the display, touch
-controller, external memory, GPIO, USB console, or JTAG.
+[`smoke`](smoke) is a generic build/self-test fixture. Its only board-family
+constraint is ESP-IDF target `esp32s3`; it deliberately does not configure the
+display, touch controller, external memory, GPIO, or JTAG. For a future approved
+self-test it explicitly selects the chip's USB Serial/JTAG console, a 2 MB flash
+image, and the single-factory-app partition table. Those compile-time choices
+are not evidence that the assigned physical board has compatible wiring or
+memory; [`docs/board-workflow/`](../../docs/board-workflow/README.md) requires
+those facts to be confirmed before any hardware operation.
 
 Build it from the repository root with:
 
@@ -42,7 +47,12 @@ nix build .#smoke --print-build-logs --max-jobs 2 --cores 2
 ```
 
 Generated `build/`, `sdkconfig`, and component-manager files stay inside this
-board's firmware folder and are ignored by Git.
+board's firmware folder and are ignored by Git. The guarded project-local build
+command additionally records immutable artifact hashes without hardware access:
+
+```console
+./tools/podlesp-board build
+```
 
 ## Future verification record
 
