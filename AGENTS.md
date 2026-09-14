@@ -3,7 +3,7 @@
 This file is the project's committed home for project-intrinsic agent knowledge: build, test, release, architecture, and sharp-edge notes that should travel with the code.
 
 - Use the shared pinned shell in `flake.nix`; run the bounded `nix flake check` command in `README.md` after environment or firmware changes.
-- For board-facing work, read that model's `boards/<model-slug>/README.md` first. Keep chip targets separate from board pin, memory, peripheral, and revision claims.
+- For board-facing work, read that model's `boards/<model-slug>/README.md` first. For the S3 touch-LCD model, `boards/esp32-s3-touch-lcd-1.9/README.md` is the authority for its hardware notes and claim status. Keep chip targets separate from board pin, memory, peripheral, and revision claims.
 - Treat builds as compilation evidence only. Hardware access and claims require explicit authorization and evidence from the exact board's primary sources.
 - For flash/reset or board self-test work, follow `docs/board-workflow/README.md`; its commands are dry-run by default and each real cycle needs fresh scoped approval.
 
