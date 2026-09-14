@@ -61,7 +61,10 @@ openocd --version
 [`boards/esp32-s3-touch-lcd-1.9/smoke`](boards/esp32-s3-touch-lcd-1.9/smoke)
 is a minimal ESP-IDF application. Its board-local CMake project fixes
 `IDF_TARGET` to `esp32s3`; the shared development shell does not select a chip.
-The example contains no display, touch, board pin, flash, or USB configuration.
+The example contains no display, touch, or board-pin configuration. It does
+explicitly select the ESP32-S3 USB Serial/JTAG console, a 2 MB flash image, and
+a single-factory-app partition table for the generic fixture; these build
+settings are not proof that an assigned physical board supports them.
 
 The fully sandboxed reproducibility check is:
 
@@ -94,7 +97,10 @@ nix develop --command bash -euc '
 
 This only creates ignored local build files. Do **not** append `flash`,
 `monitor`, OpenOCD startup, or an esptool command to these validation commands.
-CI runs the sandboxed check with two jobs/cores and a 45-minute limit.
+CI first runs the 11 host/offline board-workflow safety tests in this pinned
+shell, then runs the sandboxed check with two jobs/cores and a 45-minute job
+limit. These are separate offline-contract and compilation results, not board
+validation.
 
 ## Guarded board workflow
 
@@ -116,6 +122,10 @@ Run the offline guard and capture tests with:
 ```console
 python3 -m unittest discover -s tests -v
 ```
+
+The [Phase 1 traceability ledger](docs/board-workflow/phase-1-traceability.md)
+maps safety requirement IDs to the existing tests and clearly separates
+proposed follow-up coverage.
 
 ## Board layout and compatibility
 

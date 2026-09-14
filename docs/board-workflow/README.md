@@ -33,7 +33,9 @@ The last command writes `.podlesp/artifact.json` with the immutable Nix output,
 source revision, lock-file digest, flash settings, and hashes of every artifact.
 It requires a clean tracked source tree so an artifact cannot silently drift
 from its revision. A successful build is compilation evidence for a generic
-`esp32s3` fixture only.
+`esp32s3` fixture only. The [Phase 1 traceability ledger](phase-1-traceability.md)
+maps the current host/offline tests to their safety requirement IDs and labels
+proposed follow-up coverage separately.
 
 The fixture waits two seconds, emits `PODLESP_BOOT <random-run-nonce>`, then
 emits exactly one `PODLESP_SELF_TEST_PASS <same-nonce>` or
