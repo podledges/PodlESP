@@ -97,10 +97,10 @@ nix develop --command bash -euc '
 
 This only creates ignored local build files. Do **not** append `flash`,
 `monitor`, OpenOCD startup, or an esptool command to these validation commands.
-CI first runs the 11 host/offline board-workflow safety tests in this pinned
-shell, then runs the sandboxed check with two jobs/cores and a 45-minute job
-limit. These are separate offline-contract and compilation results, not board
-validation.
+CI first runs the 11 pure-Python host/offline board-workflow safety tests with
+the runner's Python 3, then uses the pinned Nix tooling for the sandboxed check
+with two jobs/cores and a 45-minute job limit. These are separate
+offline-contract and compilation results, not board validation.
 
 ## Guarded board workflow
 

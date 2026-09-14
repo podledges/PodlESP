@@ -22,6 +22,7 @@ when source line numbers move.
 | `EVID-01` — durable record for every admitted attempt | **No existing test method.** The current [`write_result`](../../tools/podlesp_board.py) helper writes bounded JSON, but that is implementation, not tested durability coverage. | Fault injection around consume/spawn, partial journals, disk-full/restart/ACK-loss cases, terminal escaping, and non-replay of admitted unknown attempts. |
 | `TOPO-01` — no port or power overclaim | **No existing test method.** Topology and power remain documentary prerequisites, not facts established by host tests. | Port accounting and refusal of unknown topology/power approval; later physical evidence remains separately authorized and separately labelled. |
 
-CI runs the current 11 methods in the repository's pinned Nix development shell
-before the bounded smoke build. A passing suite proves only these offline
-contracts; the smoke build remains compilation evidence only.
+CI runs the current 11 pure-Python methods directly with the runner's Python 3
+before using the pinned Nix tooling for the bounded smoke build. A passing suite
+proves only these offline contracts; the smoke build remains compilation
+evidence only.
