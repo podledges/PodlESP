@@ -132,6 +132,9 @@ a running service or hardware authority.
 
 ## Board layout and compatibility
 
+For the chip-level analog channel map, see [ESP32-S3 ADC-capable
+GPIOs](docs/esp32-s3-adc-gpios.md); it is not a board or product pin assignment.
+
 Each model gets `boards/<model-slug>/`, containing a hardware note and its own
 firmware/configuration folders. The first model is
 [`esp32-s3-touch-lcd-1.9`](boards/esp32-s3-touch-lcd-1.9/README.md). Its board
