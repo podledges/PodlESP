@@ -21,7 +21,7 @@ jobs:
           extra_nix_config: |
             max-jobs = 2
             cores = 2
-      - name: Run offline board-workflow safety tests
+      - name: Run offline board-workflow and broker-contract safety tests
         run: python3 -m unittest discover -s tests -v
       - name: Check flake and cross-build smoke firmware
         run: nix flake check --print-build-logs --max-jobs 2 --cores 2

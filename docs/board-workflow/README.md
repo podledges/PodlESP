@@ -35,7 +35,9 @@ It requires a clean tracked source tree so an artifact cannot silently drift
 from its revision. A successful build is compilation evidence for a generic
 `esp32s3` fixture only. The [Phase 1 traceability ledger](phase-1-traceability.md)
 maps the current host/offline tests to their safety requirement IDs and labels
-proposed follow-up coverage separately.
+proposed follow-up coverage separately. The source-only [broker data-plane
+contract](broker-contracts.md) defines future request, enrollment, plan, and
+approval records without adding a service or hardware path.
 
 The fixture waits two seconds, emits `PODLESP_BOOT <random-run-nonce>`, then
 emits exactly one `PODLESP_SELF_TEST_PASS <same-nonce>` or

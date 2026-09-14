@@ -97,10 +97,11 @@ nix develop --command bash -euc '
 
 This only creates ignored local build files. Do **not** append `flash`,
 `monitor`, OpenOCD startup, or an esptool command to these validation commands.
-CI first runs the 11 pure-Python host/offline board-workflow safety tests with
-the runner's Python 3, then uses the pinned Nix tooling for the sandboxed check
-with two jobs/cores and a 45-minute job limit. These are separate
-offline-contract and compilation results, not board validation.
+CI first discovers all pure-Python host/offline board-workflow and broker
+contract safety tests with the runner's Python 3, then uses the pinned Nix
+tooling for the sandboxed check with two jobs/cores and a 45-minute job limit.
+These are separate offline-contract and compilation results, not board
+validation.
 
 ## Guarded board workflow
 
@@ -124,8 +125,10 @@ python3 -m unittest discover -s tests -v
 ```
 
 The [Phase 1 traceability ledger](docs/board-workflow/phase-1-traceability.md)
-maps safety requirement IDs to the existing tests and clearly separates
-proposed follow-up coverage.
+maps safety requirement IDs to implemented tests and clearly separates
+proposed follow-up coverage. The source-only [broker contract](docs/board-workflow/broker-contracts.md)
+defines versioned plans, enrollment records, and approval envelopes; it is not
+a running service or hardware authority.
 
 ## Board layout and compatibility
 
