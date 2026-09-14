@@ -133,13 +133,21 @@ a running service or hardware authority.
 ## Board layout and compatibility
 
 For the chip-level analog channel map, see [ESP32-S3 ADC-capable
-GPIOs](docs/esp32-s3-adc-gpios.md); it is not a board or product pin assignment.
+GPIOs](docs/esp32-s3-adc-gpios.md); it is not a board or product pin assignment
+and must not be applied to a board whose chip is not confirmed as ESP32-S3.
 
-Each model gets `boards/<model-slug>/`, containing a hardware note and its own
-firmware/configuration folders. The first model is
-[`esp32-s3-touch-lcd-1.9`](boards/esp32-s3-touch-lcd-1.9/README.md). Its board
-note separates the confirmed `esp32s3` chip-family build target from unconfirmed
-physical model/revision and peripheral assumptions.
+Each model gets `boards/<model-slug>/`, containing a hardware note and any
+board-local firmware/configuration folders:
+
+- [`esp32-s3-touch-lcd-1.9`](boards/esp32-s3-touch-lcd-1.9/README.md) — the
+  ESP32-S3 1.9-inch touch-LCD model and its smoke fixture.
+- [`esp32-cp2102-micro`](boards/esp32-cp2102-micro/README.md) — the distinct
+  captain-labeled `ESP32S-CP2102-MICRO` board; its exact chip and revision are
+  unconfirmed, and it has no board-local firmware yet.
+
+Each board note separates chip-family evidence from unconfirmed physical-model,
+revision, pin, and peripheral assumptions. Do not transfer ADC maps, USB paths,
+or other board facts between models.
 
 To add a board, verify its exact identity against public manufacturer and chip
 primary sources, create one normalized model slug, document the ESP-IDF chip
