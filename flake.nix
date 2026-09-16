@@ -90,7 +90,9 @@
         led-pattern = ledPattern;
       };
 
-      checks.${system}.smoke = smoke;
-      checks.${system}.led-pattern = ledPattern;
+      checks.${system} = {
+        smoke = smoke;
+        led-pattern = ledPattern;
+      };
     };
 }
