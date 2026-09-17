@@ -6,7 +6,7 @@ status: "Research documentation, not hardware authorization"
 
 # PodlESP research notes
 
-- [Piano audio transcription: ML, DSP and MCU evidence](piano-transcription/README.md) - synthesis of two independent scouts, with measured results, limitations, piezo/ADC caveats and proposed experiments.
+- [Piano audio transcription: ML, DSP and MCU evidence](piano-transcription/README.md) - four-report synthesis with retained source records, MCU multipitch positives, measured-result limits, piezo/ADC caveats and proposed experiments.
 - [Earlier ESP32 technical-report research](esp32-technical-report-research/README.md) - historical records from related projects, not current PodlESP hardware facts.
 
 ## Open in Obsidian

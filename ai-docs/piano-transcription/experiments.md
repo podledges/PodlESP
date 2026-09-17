@@ -50,6 +50,11 @@ not ground truth for a separate acoustic-piano performance.
 window/latency budget, or excellent in-domain scores disappear on held-out
 pianos. Neither a smaller MCU nor quantization repairs missing evidence.
 
+Add fixed-template NMF/PLCA as **non-neural** baselines rather than comparing
+only peak picking and deep models. The 2010 piano NMF and 2018 Pi3 augmentation
+results justify the comparison, not an MCU feasibility promise.
+[S24](sources.md#s24), [S25](sources.md#s25)
+
 ## 3. Compare sensors and analog branches fairly
 
 After the safety prerequisites and authorization, use paired performances
@@ -80,6 +85,17 @@ merges repeated attacks, or uses room decay as a substitute for release timing.
 Cornell and the compact-model ablations explain why these are essential
 stress tests. [S2](sources.md#s2), [S5](sources.md#s5)
 
+Compare the M7 violin-pair and Cornell triad tasks on their stated instrument,
+register and hold-time conditions before testing transfer to acoustic piano.
+For Cornell, include sine versus struck-piano timbres; for M7, keep beat-based
+reporting separate from event timing. A four-note chord or wide-register pair
+must not be scored by only whether its three loudest peaks form a known triad.
+[S22](sources.md#s22), [S23](sources.md#s23)
+
+Score-informed candidate restriction is a separate condition from unconstrained
+transcription; disclose any expected score rather than silently narrowing the
+recognition task. [S29](sources.md#s29), [S33](sources.md#s33)
+
 ## 5. Test causality, not just throughput
 
 Replay identical audio prefixes with different future continuations. Outputs
@@ -90,7 +106,8 @@ any provisional events and revisions separately from final events.
 Inspect transform centering, temporal pooling, normalization, backward
 recurrent layers, future peak picking and whole-note averaging. Compare
 bounded-streaming and offline outputs on the same data. This directly addresses
-the [Mobile-AMT dispute](evidence.md#mobile-amt-174-ms-remains-a-qualified-claim).
+the [Mobile-AMT dispute](evidence.md#mobile-amt-174-ms-remains-a-qualified-claim)
+and [Pianolizer's live-analysis versus file-export boundary](broad-evidence.md#why-sub-millisecond-computation-is-not-sub-millisecond-transcription).
 
 **Disconfirming result:** RTF is below one but the queue grows, the model waits
 seconds for context, or accurate event timestamps arrive after the usable

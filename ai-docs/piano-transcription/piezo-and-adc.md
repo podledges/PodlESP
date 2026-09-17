@@ -18,7 +18,7 @@ permission to connect hardware. Existing firmware is not a binding design.
 | Input | What is measured | Main confounders | What existing results transfer? |
 |---|---|---|---|
 | Air microphone | Radiated instrument sound plus room | Reverberation, speech, distance, clipping, microphone response | Closest to MAESTRO/IDMT piano studies, still subject to domain shift |
-| Soundboard piezo / contact pickup | Structure-borne vibration | Mounting, resonances, pedal/handling noise, cable/loading | No controlled MCU piano-AMT piezo-versus-air benchmark found in the two searches |
+| Soundboard piezo / contact pickup | Structure-borne vibration | Mounting, resonances, pedal/handling noise, cable/loading | No controlled MCU piano-AMT piezo-versus-air benchmark found across the four reports |
 | Electrical pickup / digital-piano line output | Analog audio, often already mixed across notes | Pickup/timbre/gain differences; model and instrument settings | Less room involvement is not proof of acoustic-piano or piezo accuracy |
 | Key/hammer optical or electrical sensing | Mechanism position/motion | Sensor calibration, mechanical installation, release definition | Direct MIDI sensing is not audio inference, even when the screen looks identical |
 
@@ -32,6 +32,11 @@ can worsen because the model has learned air-mic spectra. There is no universal
 piezo improvement supported by the reviewed experiments. Mobile-AMT's IDMT
 results demonstrate recording-domain sensitivity, not piezo robustness.
 [S6](sources.md#s6)
+
+The broader [contact-sensing examples](broad-evidence.md#commercial-and-contact-sensing-exclusions)
+add divided-pickup pitch tracking, fixed-note piezo triggers and Bela capture
+tooling. These are distinct from optical sensing and from inference on a shared
+soundboard mixture; none supplies a controlled MCU piano contact/air benchmark.
 
 ## Parallel analog paths are not source separation
 
