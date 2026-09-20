@@ -6,16 +6,17 @@ status: "Author-reported results, not locally reproduced"
 
 # Piano transcription evidence and comparisons
 
-[Overview](README.md) | [Sensors](piezo-and-adc.md) |
+[Overview](README.md) | [Broad-search additions](broad-evidence.md) | [Sensors](piezo-and-adc.md) |
 [Experiments](experiments.md) | [Sources](sources.md)
 
 ## Read the metrics before the rankings
 
 - **Classification accuracy** is correct labels divided by isolated examples.
   It is not a polyphonic note-event score or a false-trigger rate in silence.
-- **Frame/multipitch detection** identifies active pitches. **Note events**
-  additionally need separate attacks and releases; repeated notes can occur
-  without an intervening silent frame. Velocity and pedal are separate tasks.
+- **Frame/multipitch detection** identifies active pitches. **Note transcription**
+  adds distinct onsets; releases/offsets, velocity and pedal are separately
+  reported outputs, not mandatory gates for counting pitch/onset transcription.
+  Repeated notes can occur without an intervening silent frame.
 - **Note F1** is the harmonic mean of precision (matched predictions / all
   predictions) and recall (matched references / all references). Standard
   `mir_eval` defaults use **50 cents pitch tolerance and 50 ms onset tolerance**.
@@ -34,6 +35,10 @@ status: "Author-reported results, not locally reproduced"
   evaluation splits matter. [S9](sources.md#s9)
 
 ## What runs where
+
+This retains the first-wave comparison. [Broad-search evidence](broad-evidence.md)
+adds the M7 violin pair, RP2040 triads, NMF laptop, PLCA Pi3 and other families;
+Huang is not the only MCU musical-pitch result.
 
 Numbers are primary authors' reported results, not independent replications by
 this project. Each row's task and timing definition limit the comparison.
@@ -54,7 +59,7 @@ No demo or aggregate dataset score proves all 88 keys, all chord combinations,
 all pianos or all sensor placements. Acoustic piano, digital piano line output,
 contact pickup, voice and percussion are not interchangeable test conditions.
 
-## Huang: the positive MCU result, with its limits
+## Huang: the isolated-note MCU ML result, with its limits
 
 [S1](sources.md#s1), Tables 1-3 and Figure 6, is the closest match to the MCU
 question. Short-time energy and zero-crossing rate locate candidate attacks.
