@@ -61,6 +61,8 @@
             if [ -f build/podlesp-led-pattern.bin ]; then cp build/podlesp-led-pattern.bin "$out/"; fi
             if [ -f build/podlesp-ambulance-blink.elf ]; then cp build/podlesp-ambulance-blink.elf "$out/"; fi
             if [ -f build/podlesp-ambulance-blink.bin ]; then cp build/podlesp-ambulance-blink.bin "$out/"; fi
+            if [ -f build/podlesp-red-glow.elf ]; then cp build/podlesp-red-glow.elf "$out/"; fi
+            if [ -f build/podlesp-red-glow.bin ]; then cp build/podlesp-red-glow.bin "$out/"; fi
             cp build/bootloader/bootloader.bin "$out/"
             cp build/partition_table/partition-table.bin "$out/"
             cp build/flasher_args.json "$out/"
@@ -85,6 +87,12 @@
         target = "esp32";
         src = ./boards/esp32-devkit1/ambulance-blink;
       };
+
+      redGlow = mkEspIdfFirmware {
+        pname = "podlesp-esp32-devkit1-red-glow";
+        target = "esp32";
+        src = ./boards/esp32-devkit1/red-glow;
+      };
     in
     {
       devShells.${system}.default = pkgs.mkShell {
@@ -97,13 +105,14 @@
         inherit smoke;
         led-pattern = ledPattern;
         ambulance-blink = ambulanceBlink;
+        red-glow = redGlow;
       };
 
       checks.${system} = {
         smoke = smoke;
         led-pattern = ledPattern;
-        # ambulance-blink is classic esp32; keep out of default CI smoke job if heavy — still eval-able
         ambulance-blink = ambulanceBlink;
+        red-glow = redGlow;
       };
     };
 }
